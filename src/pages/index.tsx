@@ -23,15 +23,7 @@ export default function Home() {
           repeat={1}
         />
       </DelayedFadeIn>
-      {/* <DelayedFadeIn delay={ 3000 } className={classNames('text-4xl', `mt-12` )}>
-            <TypeAnimation
-              cursor={false}
-              sequence={textArray}
-              speed={50}
-              repeat={0}
-            />
-          </DelayedFadeIn> */}
-      {textArray1.map((wuji, index) => {
+      {textArray.map((wuji, index) => {
         return (
           <div
             className={classNames(
@@ -39,7 +31,7 @@ export default function Home() {
             )}
           >
             <DelayedFadeIn
-              delay={getPreviousLengths(index, textArray1, false) * 55 + 3000}
+              delay={getPreviousLengths(index, textArray, false) * 55 + 3000}
               className={classNames("text-3xl", ``)}
             >
               <TypeAnimation
@@ -55,7 +47,7 @@ export default function Home() {
       <div className="flex justify-start items-center mt-10">
         <DelayedFadeIn
           delay={
-            getPreviousLengths(textArray1.length - 1, textArray1, false) * 60 +
+            getPreviousLengths(textArray.length - 1, textArray, false) * 60 +
             3000
           }
           className="text-4xl ml-4 "
@@ -69,7 +61,7 @@ export default function Home() {
         </DelayedFadeIn>
         <DelayedFadeIn
           delay={
-            getPreviousLengths(textArray1.length - 1, textArray1, false) * 60 +
+            getPreviousLengths(textArray.length - 1, textArray, false) * 60 +
             5000
           }
           noFadeIn={false}
@@ -104,14 +96,6 @@ function getPreviousLengths(
   }, 0);
 }
 
-const text = `If you're here, to me, you are any of`;
-const text1 = `family`;
-const text2 = `one of my closest friends,`;
-const text3 = ` one of my closest friends, in the future,`;
-const text4 = `a mentor`;
-const text5 = `a truly impressive human being,`;
-const text6 = `or, a mix of the above...`;
-const textArray = [text1, 500, text2, 500, text3, 500, text4, 500, text5];
 
 const text_1 = `family, in some way, shape, or form,`;
 const text_2 = `one of my closest friends, along some astral dimension,`;
@@ -120,29 +104,5 @@ const text_4 = `a mentor,`;
 const text_5 = `a truly impressive human being,`;
 const text_6 = "a mix of the above...";
 
-const textArray1 = [text_1, text_2, text_3, text_4, text_5, text_6];
+const textArray = [text_1, text_2, text_3, text_4, text_5, text_6];
 
-// const text = `If you're here, you are someone, who to me, is either `;
-// const text1 = `family,`;
-// const text2 = `one of my closest friends,`;
-// const text3 = `one of my closest friends, in the future,`;
-// const text4 = `a mentor,`;
-// const text5 = `or,`
-// const text6 = `a mix of the above...`;
-// const textArray = [text1, text2, text3, text4, text5, text6];
-
-// const text = `If you're here, you are someone, is either `;
-// const text1 = `someone who to me, is family...     or`;
-// const text2 = `someone who to me, is one of my closest friends...     or`;
-// const text3 = `someone who to me, will be a close friend in the future...    or`;
-// const text4 = `someone who to me, is a mentor...     or`;
-// const text5 = `a mix of all of the above...`;
-// const textArray = [text1, text2, text3, text4, text5];
-
-// const text = `If you're here, you are someone who is either `;
-// const text1 = `to me, family`;
-// const text2 = `a best friend, whom I `;
-// const text3 = `a close friend in the future...    or`;
-// const text4 = `someone who to me, is a mentor...     or`;
-// const text5 = `a mix of all of the above...`;
-// const textArray = [text1, text2, text3, text4, text5];
