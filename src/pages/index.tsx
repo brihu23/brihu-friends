@@ -6,13 +6,22 @@ import { Label } from "@/components/ui/label";
 import ModeToggle from "@/components/ui/mode-toggle";
 import classNames from "@/lib/classNames";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 import { TypeAnimation } from "react-type-animation";
 
 export default function Home() {
+  const router = useRouter();
+  const [password, setPassword] = useState("");
+  useEffect(() => {
+    if (router?.query?.pass) {
+      setPassword(router.query.pass);
+    }
+  });
   return (
     <main className="flex flex-col items-start justify-start  tracking-tight lg:py-16  lg:mx-[20rem] px-12 py-12 ">
-      <ModeToggle classNames="fixed top-0 right-0 p-4" />
+      <ModeToggle />
       <DelayedFadeIn delay={200} className="text-4xl lg:text-5xl">
         <TypeAnimation
           cursor={false}
@@ -50,7 +59,7 @@ export default function Home() {
           </div>
         );
       })}
-      <div className="flex justify-start items-center mt-10 w-full  ">
+      <div className="flex justify-start items-center mt-12 w-full  ">
         <DelayedFadeIn
           delay={
             getPreviousLengths(textArray.length - 1, textArray, false) * 60 +
@@ -60,8 +69,19 @@ export default function Home() {
           className="text-lg lg:text-xl w-full lg:ml-2 flex items-center justify-start whitespace-nowrap "
         >
           <div className="flex w-full max-w-sm items-center space-x-2 tracking-widest ">
-            <Input className='tracking-wide placeholder:text-slate-300' type="text" placeholder="password" />
-            <Button className='tracking-wide' type="submit">enter →</Button>
+            <Input
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value)
+              }}
+              className="tracking-wp
+              ide placeholder:text-slate-300"
+              type="text"
+              placeholder="password"
+            />
+            <Button className="tracking-wide" type="submit">
+              enter →
+            </Button>
           </div>
         </DelayedFadeIn>
       </div>
